@@ -1,0 +1,25 @@
+.dashboard-container{
+    padding: 20px 20px;
+    background-color: rgba(210, 197, 180, 0.752);
+    height: calc(100vh - 15.8vh);
+}
+.dashboard-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.active_order{
+    background-color: rgba(234, 231, 228, 0.953);
+    width: 30%;
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.active_order:hover{
+    background-color: rgb(244, 188, 115);
+}
+

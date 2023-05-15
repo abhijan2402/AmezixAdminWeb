@@ -1,0 +1,24 @@
+.categorie-container{
+    padding: 20px 20px;
+    background-color: rgba(210, 197, 180, 0.752);
+    height: calc(100vh - 15.8vh);
+}
+.categorie-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.electronic{
+    background-color: rgba(181, 209, 240, 0.953);
+    width: 30%;
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.electronic:hover{
+    background-color: rgba(0, 106, 255, 0.747);
+}

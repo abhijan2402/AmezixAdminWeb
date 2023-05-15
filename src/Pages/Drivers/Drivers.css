@@ -1,0 +1,39 @@
+.driver-container{
+    padding: 8px 20px;
+    background-color: rgba(210, 197, 180, 0.752);
+    height: calc(100vh - 15.8vh);
+}
+.driver-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.driver{
+    background-color: rgba(234, 231, 228, 0.953);
+    width: 30%;
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.driver:hover{
+    background-color: rgb(244, 188, 115);
+}
+.driver-list{
+    margin-top: 30px;
+    width: 100%;
+}
+.driver-list th{
+    font-size: 20px;
+    padding: 15px;
+    background-color: rgb(198, 121, 91);
+}
+.driver-list td{
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgba(175, 126, 183, 0.423);
+}
