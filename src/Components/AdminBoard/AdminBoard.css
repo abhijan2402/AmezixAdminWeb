@@ -2,14 +2,12 @@
     /* border: 2px solid red; */
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Side Panel */
 .side-panel{
-    /* border: 2px solid rgb(49, 49, 49); */
     width: 15%;
-    position: fixed;
-    top: 0;
 }
 .side-panel .panel-header {
     background-color: rgb(236, 193, 193);
@@ -18,7 +16,7 @@
     padding: 20px;
 }
 .panel-header h3{
-    color: rgb(52, 52, 238);
+    color: #5352ed;
 }
 .panel-header h4{
     padding-top: 10px;
@@ -52,10 +50,10 @@
 /* Header */
 .header{
     /* border: 2px solid rgb(81, 0, 255); */
+    overflow: hidden;
     height: 122px;
-    width: 85%;
-    position: fixed;
-    left: 228px;
+    width: 100%;
+    left: 230px;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -82,56 +80,47 @@
     /* border: 2px solid rgb(255, 0, 247); */
     height: calc(100vh - 16vh);
     width: 100%;
-    margin-left: 228px;
-    margin-top: 120px;
+    margin-top: 2px;
+    overflow-y: scroll;
 }
+.main-content::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+  }
 
 
 
 /* Media Queary */
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1496px) {
+    .header .logout-btn{
+        font-size: 18px;
+        padding: 10px 30px;
+        margin-right: 40px;
+    }
     .side-panel .panel-header {
         font-size: 20px;
+        padding: 32px;
     }
     .panel-navigation p{
         font-size: 20px;
+        margin-top: 30px;
+        padding-left: 25px;
+    }
+}
+@media screen and (max-width: 1184px){
+    .panel-navigation p{
+        font-size: 15px;
         margin-top: 20px;
+        padding-left: 20px;
+    }
+}
+@media screen and (max-width: 1166px){
+    .side-panel .panel-header {
+        font-size: 15px;
+        padding: 30px;
     }
     .header{
-        height: 100px;
-    }
-    .header .logout-btn{
-        font-size: 17px;
-        padding: 10px 30px;
-    }
-}
-@media screen and (max-width: 1265px){
-    .side-panel{
-        /* border: 2px solid rgb(49, 49, 49); */
-        width: 20%;
-    }
-}
-@media screen and (max-width: 1045px){
-    .side-panel{
-        /* border: 2px solid rgb(49, 49, 49); */
-        width: 25%;
-    }
-}
-@media screen and (max-width: 891px){
-    .side-panel{
-        /* border: 2px solid rgb(49, 49, 49); */
-        width: 30%;
-    }
-}
-@media screen and (max-width: 741px){
-    .side-panel{
-        /* border: 2px solid rgb(49, 49, 49); */
-        width: 35%;
-    }
-}
-@media screen and (max-width: 666px){
-    .side-panel{
-        /* border: 2px solid rgb(49, 49, 49); */
-        width: 40%;
+        border: 2px solid rgb(81, 0, 255);
+        height: 110px;
     }
 }

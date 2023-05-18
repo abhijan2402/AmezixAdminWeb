@@ -1,6 +1,6 @@
 .order-container{
     padding: 20px 20px;
-    background-color: rgba(210, 197, 180, 0.752);
+    background-color: #fff;
     height: calc(100vh - 15.8vh);
 }
 .order-content{
@@ -20,7 +20,7 @@
     transition: 0.5s;
 }
 .order:hover{
-    background-color: rgb(244, 188, 115);
+    background-color: rgb(236, 193, 193);
 }
 .order-list{
     margin-top: 30px;
@@ -29,11 +29,47 @@
 th{
     font-size: 20px;
     padding: 5px;
-    background-color: rgb(109, 187, 99);
+    background-color: rgb(135, 197, 255);
 }
 td{
     text-align: center;
     font-size: 18px;
     padding: 8px;
-    background-color: rgba(133, 183, 126, 0.674);
+    background-color: rgb(198, 223, 246);
+}
+
+
+/* Media Queary */
+@media screen and (max-width: 1496px) {
+    .order{
+        width: 25%;
+        margin-left: 1px;
+        padding: 30px;
+        font-size: 20px;
+        margin-top: 40px;
+    }    
+}
+@media screen and (max-width: 1221px) {
+    .order{
+        width: 25%;
+        margin-left: 1px;
+        padding: 25px;
+        font-size: 18px;
+        margin-top: 35px;
+    }
+    th{
+        font-size: 18px;
+    }
+    td{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1060px) {
+    .order{
+        width: 30%;
+        margin-left: 1px;
+        padding: 25px;
+        font-size: 18px;
+        margin-top: 30px;
+    }
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import './Categories.css'
+import Filter from '../../Components/Filter/Filter'
 
 const Categories = () => {
   return (
     <div className="categorie-container">
+      <div className="categoriefilter"><Filter/></div>
       <div className="categorie-content">
         <div className="electronic">
           <h4>Electronics</h4>

@@ -1,11 +1,13 @@
 import React from 'react'
 import './Stores.css'
+import Filter from '../../Components/Filter/Filter'
 import CancelIcon from '@mui/icons-material/Cancel';
 import add from '../../assets/add.svg'
 const Stores = () => {
   return (
 
     <div className="store-container">
+         <div className="categoriefilter"><Filter/></div>
     <div className="store-content">
           <div className="store">
           <h4>New Stores</h4>

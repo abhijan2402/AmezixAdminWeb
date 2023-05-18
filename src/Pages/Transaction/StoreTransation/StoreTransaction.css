@@ -1,43 +1,39 @@
-.subAdmin-container{
-    padding: 20px 20px;
-    background-color: #fff;
-    height: calc(100vh - 15.8vh);
-}
-.subAdmin-content{
+.storetransaction-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.subAdmin{
+.storetransaction{
     background-color: rgba(234, 231, 228, 0.953);
-    width: 30%;
+    width: 25%;
     text-align: center;
-    padding: 40px;
+    padding: 20px 0px;
     font-size: 25px;
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 20px;
     cursor: pointer;
     transition: 0.5s;
 }
-.subAdmin:hover{
+.storetransaction:hover{
     background-color: rgb(236, 193, 193);
 }
-.subAdmin-list{
+.storetransaction-list{
     margin-top: 30px;
     width: 100%;
+    padding: 10px;
 }
-.subAdmin-list th{
+.storetransaction-list th{
     font-size: 20px;
     padding: 15px;
     background-color: rgb(135, 197, 255);
 }
-.subAdmin-list td{
+.storetransaction-list td{
     text-align: center;
     font-size: 18px;
     padding: 10px;
     background-color: rgb(198, 223, 246);
 }
-.subAdmin-list p {
+.storetransaction-list p {
     text-align: center;
     width: 30px;
     margin-left: 20px;
@@ -47,26 +43,16 @@
 
 /* Media Queary */
 @media screen and (max-width: 1496px) {
-    .subAdmin{
-        width: 25%;
-        margin-left: 1px;
-        padding: 30px;
-        font-size: 22px; 
-        margin-top: 30px;
-    }
-    .subAdmin-list th{
+    .storetransaction{
+        width: 26%;
+        padding: 18px 2px;
         font-size: 18px;
+    }  
+    
+    .storetransaction-lis th{
+        font-size: 15px;
     }
-    .subAdmin-list td{
-        font-size: 16px;
-    }
-}
-@media screen and (max-width: 1357px) {
-    .subAdmin{
-        width: 25%;
-        margin-left: 1px;
-        padding: 25px;
-        font-size: 20px; 
-        margin-top: 30px;
+    .storetransaction-list td{
+        font-size: 15px;
     }
 }

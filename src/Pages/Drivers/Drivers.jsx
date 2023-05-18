@@ -1,9 +1,11 @@
 import React from "react";
 import "./Drivers.css";
+import Filter from '../../Components/Filter/Filter'
 
 const Drivers = () => {
   return (
     <div className="driver-container">
+      <div className="drivercategoriefilter"><Filter/></div>
       <div className="driver-content">
         <div className="driver">
           <h4>New Drivers</h4>
@@ -47,6 +49,78 @@ const Drivers = () => {
             <td>Althan</td>
           </tr>
           <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>Ram</td>
+            <td>91735689478</td>
+            <td>2000</td>
+            <td>015</td>
+            <td>verified</td>
+            <td>Althan</td>
+          </tr>
+          <tr>
             <td>02</td>
             <td>Ram</td>
             <td>91735689478</td>
@@ -57,15 +131,6 @@ const Drivers = () => {
           </tr>
           <tr>
             <td>03</td>
-            <td>Ram</td>
-            <td>91735689478</td>
-            <td>2000</td>
-            <td>015</td>
-            <td>verified</td>
-            <td>Althan</td>
-          </tr>
-          <tr>
-            <td>04</td>
             <td>Ram</td>
             <td>91735689478</td>
             <td>2000</td>

@@ -1,6 +1,6 @@
 .store-container{
     padding: 20px 20px;
-    background-color: rgba(210, 197, 180, 0.752);
+    background-color:#fff;
     height: calc(100vh - 15.8vh);
 }
 .store-content{
@@ -20,7 +20,7 @@
     transition: 0.5s;
 }
 .store:hover{
-    background-color: rgb(244, 188, 115);
+    background-color: rgb(236, 193, 193);
 }
 .store-list{
     margin-top: 30px;
@@ -29,13 +29,13 @@
 .store-list th{
     font-size: 20px;
     padding: 5px;
-    background-color: rgb(198, 121, 91);
+    background-color: rgb(135, 197, 255);
 }
 .store-list td{
     text-align: center;
     font-size: 18px;
     padding: 8px;
-    background-color: rgba(175, 126, 183, 0.423);
+    background-color: rgb(198, 223, 246);
 }
 .store-list p {
     text-align: center;
@@ -63,10 +63,38 @@ button{
     color: rgba(0, 0, 0, 0.852);
 }
 button:hover{
-    background-color: rgb(34, 105, 248);
+    background-color: rgba(80, 137, 250, 0.468);
 }
 img{
     height: 25px;
     width: 25px;
     margin-left: 10px;
+}
+
+/* Media Queary */
+@media screen and (max-width: 1496px) {
+    .store{
+        width: 25%;
+        margin-left: 1px;
+        padding: 30px;
+        font-size: 22px; 
+        margin-top: 40px;
+    }
+    .store-list th{
+        font-size: 18px;
+    }
+    .store-list td{
+        font-size: 15px;
+    }
+    button{
+        padding: 6px 20px;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 1357px) {
+    .store{
+        width: 25%;
+        padding: 35px;
+        font-size: 20px; 
+    }
 }

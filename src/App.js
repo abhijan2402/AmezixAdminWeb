@@ -1,8 +1,8 @@
 import {Routes, Route} from 'react-router-dom';
 import './App.css';
-import AdminBoard from './Components/AdminBoard';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import Categories from './Pages/Categories/Categories';
+import AdminBoard from './Components/AdminBoard/AdminBoard';
+import Transaction from './Pages/Transaction/Transaction';
+import Filter from './Components/Filter/Filter';
 
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<AdminBoard/>} />
-        {/* <Route path='/Dashboard' element={<Dashboard/>} /> */}
-        {/* <Route path='/Categories' element={<Categories/>} /> */}
+        <Route path='/Transaction' element={<Transaction/>} />
+        <Route path='/Filter' element={<Filter/>}/>
       </Routes>
     </div>
   );

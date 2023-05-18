@@ -1,6 +1,6 @@
 .driver-container{
     padding: 8px 20px;
-    background-color: rgba(210, 197, 180, 0.752);
+    background-color: #fff;
     height: calc(100vh - 15.8vh);
 }
 .driver-content{
@@ -20,7 +20,7 @@
     transition: 0.5s;
 }
 .driver:hover{
-    background-color: rgb(244, 188, 115);
+    background-color: rgb(236, 193, 193);
 }
 .driver-list{
     margin-top: 30px;
@@ -29,11 +29,48 @@
 .driver-list th{
     font-size: 20px;
     padding: 15px;
-    background-color: rgb(198, 121, 91);
+    background-color: rgb(135, 197, 255);
 }
 .driver-list td{
     text-align: center;
     font-size: 18px;
     padding: 10px;
-    background-color: rgba(175, 126, 183, 0.423);
+    background-color: rgb(198, 223, 246);
+}
+.drivercategoriefilter{
+    margin-top: 15px;
+}
+
+
+/* Media Queary */
+@media screen and (max-width: 1496px) {
+    .driver{
+        width: 25%;
+        padding: 30px;
+        font-size: 20px;
+        margin-top: 40px;
+        margin-left: 1px;
+    }
+    .driver-list th{
+        font-size: 18px;
+    }
+    .driver-list td{
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 1260px) {
+    .driver{
+        width: 25%;
+        padding: 25px;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-left: 1px;
+    }
+    .driver-list th{
+        font-size: 16px;
+    }
+    .driver-list td{
+        font-size: 15px;
+    }
 }

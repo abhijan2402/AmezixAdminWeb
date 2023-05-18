@@ -1,11 +1,13 @@
 import React from 'react'
 import './User.css'
+import Filter from '../../Components/Filter/Filter'
 import CancelIcon from '@mui/icons-material/Cancel';
 import add from '../../assets/add.svg'
 
 const User = () => {
   return (
     <div className="User-container">
+<div className="categoriefilter"><Filter/></div>
     <div className="User-content">
           <div className="User">
           <h4>New Users</h4>

@@ -1,61 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Transaction.css";
 
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PeopleIcon from "@mui/icons-material/People";
+import PaidIcon from "@mui/icons-material/Paid";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+
+import UserTransaction from "./UserTrasaction/UserTransaction";
+import TransactionContent from "./Transaction1/TransactionContent";
+import StoreTransaction from "./StoreTransation/StoreTransaction";
+import DriverTransaction from "./DriverTransaction/DriverTransaction";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 const Transaction = () => {
+  // const table = document.getElementsByClassName("list")
+  const [page, setPage] = useState("transactions");
+  const navigate = useNavigate();
   return (
-    <div className="transaction-container">
-      <div className="transaction-content">
-        <div className="transaction">
-          <h4>User Transaction</h4>
-          <p>20</p>
+    <div className="container">
+      <div className="transactionheader">
+        <div className="appname">
+          <h3>Amezix</h3>
+          <h4>Admin Panel</h4>
         </div>
-        <div className="transaction">
-          <h4>Store Transaction</h4>
-          <p>15</p>
+        <div className="avatar">
+        <button className="logout-btn">Logout</button>
+          <AccountCircleIcon
+            style={{ fontSize: "60px", marginRight: "20px", cursor: "pointer" }}
+          />
         </div>
-        <div className="transaction">
-          <h4>Driver transaction</h4>
-          <p>45</p>
-        </div>
+
       </div>
-      <div className="transaction-list">
-        <table style={{ width: "100%" }}>
-          <tr>
-            <th>#Id</th>
-            <th>Store Id</th>
-            <th>Store Name</th>
-            <th>Pending Transaction</th>
-            <th>Total Transaction</th>
-          </tr>
-          <tr>
-            <td>01</td>
-            <td>356</td>
-            <td>Big bolw City</td>
-            <td>1425</td>
-            <td>5784</td>
-          </tr>
-          <tr>
-            <td>02</td>
-            <td>5689</td>
-            <td>Spark Piplod</td>
-            <td>1235</td>
-            <td>7854</td>
-          </tr>
-          <tr>
-            <td>03</td>
-            <td>9478</td>
-            <td>syx store</td>
-            <td>3452</td>
-            <td>4520</td>
-          </tr>
-          <tr>
-            <td>04</td>
-            <td>917</td>
-            <td>abc store</td>
-            <td>4021</td>
-            <td>5000</td>
-          </tr>
-        </table>
+      <div className="transaction-container">
+        <div className="transaction-side-panel">
+          
+            <p className="Users">
+              <ArrowBackIcon
+                style={{ fontSize: "25px" }}
+                onClick={() => navigate("/")}
+              />
+              <span onClick={() => setPage("transactions")}>Transation</span>
+            </p>
+            <hr />
+            <div className="transaction-navigation">
+              <p className="Drivers">
+                <AccountCircleIcon style={{ fontSize: "25px" }} />
+                <span onClick={() => setPage("usertransactions")}>
+                  User Transaction
+                </span>
+              </p>
+              <p className="Transation">
+                <PaidIcon style={{ fontSize: "25px" }} />
+                <span onClick={() => setPage("storetransactions")}>
+                  Store Transation
+                </span>
+              </p>
+              <p className="Sub_Admin">
+                <SupervisorAccountIcon style={{ fontSize: "25px" }} />
+                <span onClick={() => setPage("drivertransactions")}>
+                  Driver Transaction
+                </span>
+              </p>
+            
+            </div>
+        </div>
+        <div className="transaction-maincontent">
+          {page === "transactions" && <TransactionContent />}
+          {page === "usertransactions" && <UserTransaction />}
+          {page === "storetransactions" && <StoreTransaction />}
+          {page === "drivertransactions" && <DriverTransaction />}
+        </div>
       </div>
     </div>
   );

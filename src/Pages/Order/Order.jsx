@@ -1,9 +1,10 @@
 import React from "react";
 import "./Order.css";
-
+import Filter from '../../Components/Filter/Filter'
 const Order = () => {
   return (
     <div className="order-container">
+      <div className="categoriefilter"><Filter/></div>
       <div className="order-content">
         <div className="order">
           <h4>New Order</h4>

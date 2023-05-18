@@ -1,45 +1,122 @@
-.transaction-container{
-    padding: 20px 20px;
-    background-color: rgba(210, 197, 180, 0.752);
-    height: calc(100vh - 15.8vh);
+/* Transaction Header */
+.transactionheader{
+    display: flex;  
 }
-.transaction-content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.transaction{
-    background-color: rgba(234, 231, 228, 0.953);
-    width: 30%;
+.appname{
+    width: 15%;
+    height: 122px;
+    background-color: rgb(236, 193, 193);
+    font-size: 30px;
     text-align: center;
-    padding: 40px;
-    font-size: 25px;
-    border-radius: 5px;
-    margin-top: 50px;
+    padding: 20px;
+}
+.appname h3{
+    color: #5352ed;
+}
+.appname h4{
+    padding-top: 10px;
+}
+.avatar{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 122px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.avatar .logout-btn{
+    font-size: 20px;
+    padding: 12px 40px;
+    border-radius: 4px;
+    background-color: rgba(255, 42, 42, 0.945);
+    color: #fff;
+    border: none;
+    margin-right: 40px;
+    transition: 0.3s;
     cursor: pointer;
+}
+.avatar .logout-btn:hover {
+    background-color: red;
+}
+/* Transaction Side Panle */
+.transaction-side-panel{
+    /* border: 2px solid green; */
+    width: 230px;
+    padding: 10px;
+    /* position: fixed; */
+    height: calc(100vh - 16vh);
+}
+.Users{
+    margin-top: 20px;
+    cursor: pointer;
+}
+.Users span:hover{
+    color: blue;
+    text-decoration: underline;
+}
+.transaction-side-panel{
+    background-color: rgb(198, 223, 246);
+    width: 15%;
+}
+.transaction-side-panel p{
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+}
+.transaction-side-panel span{
+    margin-left: 10px;
+}
+.transaction-navigation{
+    margin-top: 30px;
+}
+.transaction-navigation p{
+    margin-top: 40px;
+    cursor: pointer;
+    font-size: 20px;
     transition: 0.5s;
 }
-.transaction:hover{
-    background-color: rgb(244, 188, 115);
+.transaction-navigation p :hover{
+    color: blue;
+    text-decoration: underline;
 }
-.transaction-list{
-    margin-top: 30px;
-    width: 100%;
+
+.transaction-maincontent{
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    width: 85%;
 }
-.transaction-list th{
-    font-size: 20px;
-    padding: 15px;
-    background-color: rgb(109, 187, 99);
+.transaction-maincontent::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+  }
+.transaction-container{
+    padding: 0px 0px;
+    background-color: #fff;
+    height: calc(100vh - 15.8vh);
+    display: flex;
 }
-.transaction-list td{
-    text-align: center;
-    font-size: 18px;
-    padding: 10px;
-    background-color: rgba(133, 183, 126, 0.674);
+
+
+
+/* Media Queary */
+@media screen and (max-width: 1496px) {
+    .appname{
+        font-size: 25px;
+    }
+    .transaction-side-panel{
+        width: 15%;
+    }
 }
-.transaction-list p {
-    text-align: center;
-    width: 30px;
-    margin-left: 20px;
-    cursor: pointer;
+@media screen and (max-width: 1389px){
+    .transaction-side-panel p{
+        font-size: 25px;
+    }
+    .transaction-navigation p{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 1197px){
+    .appname{
+        font-size: 20px;
+    }
 }

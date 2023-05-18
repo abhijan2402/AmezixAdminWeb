@@ -1,6 +1,6 @@
 .categorie-container{
     padding: 20px 20px;
-    background-color: rgba(210, 197, 180, 0.752);
+    background-color: #fff;
     height: calc(100vh - 15.8vh);
 }
 .categorie-content{
@@ -20,5 +20,36 @@
     transition: 0.5s;
 }
 .electronic:hover{
-    background-color: rgba(0, 106, 255, 0.747);
+    background-color: rgb(236, 193, 193);
+}
+.categoriefilter{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Media Queary */
+@media screen and (max-width: 1496px) {
+    .electronic{
+        width: 25%;
+        margin-left: 1px;
+        padding: 40px;
+        font-size: 22px; 
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 1357px) {
+    .electronic{
+        width: 25%;
+        padding: 35px;
+        font-size: 20px; 
+    }
+}
+@media screen and (max-width: 1110px) {
+    .electronic{
+        width: 25%;
+        padding: 30px;
+        font-size: 18px; 
+    }
 }
