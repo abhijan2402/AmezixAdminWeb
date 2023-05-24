@@ -30,7 +30,6 @@ const Transaction = () => {
             style={{ fontSize: "60px", marginRight: "20px", cursor: "pointer" }}
           />
         </div>
-
       </div>
       <div className="transaction-container">
         <div className="transaction-side-panel">

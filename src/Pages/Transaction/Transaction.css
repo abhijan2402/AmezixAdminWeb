@@ -4,11 +4,11 @@
 }
 .appname{
     width: 15%;
-    height: 122px;
+    height: 85px;
     background-color: rgb(236, 193, 193);
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 .appname h3{
     color: #5352ed;
@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 122px;
+    height: 85px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .avatar .logout-btn{
@@ -44,7 +44,7 @@
     width: 230px;
     padding: 10px;
     /* position: fixed; */
-    height: calc(100vh - 16vh);
+    height: calc(100vh - 85px);
 }
 .Users{
     margin-top: 20px;
@@ -92,7 +92,7 @@
 .transaction-container{
     padding: 0px 0px;
     background-color: #fff;
-    height: calc(100vh - 15.8vh);
+    height: calc(100vh - 85px);
     display: flex;
 }
 
@@ -100,14 +100,14 @@
 
 /* Media Queary */
 @media screen and (max-width: 1496px) {
-    .appname{
-        font-size: 25px;
-    }
     .transaction-side-panel{
         width: 15%;
     }
 }
 @media screen and (max-width: 1389px){
+    .appname{
+        font-size: 20px;
+    }
     .transaction-side-panel p{
         font-size: 25px;
     }
@@ -117,6 +117,6 @@
 }
 @media screen and (max-width: 1197px){
     .appname{
-        font-size: 20px;
+        font-size: 18px;
     }
 }

@@ -30,42 +30,6 @@ const AdminBoard = () => {
           <h3>Amezix</h3>
           <h4>Admin Panel</h4>
         </div>
-         {/* {active === "Transaction" ? <Transaction /> : 
-         (<div className="panel-navigation">
-         <p className="Dashboard">
-           <DashboardIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Dashboard")}>Dashboard</span>
-         </p>
-         <p className="Categories">
-           <CategoryIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Categories")}>Categories</span>
-         </p>
-         <p className="orders">
-           <BorderColorIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Order")}>orders</span>
-         </p>
-         <p className="Stores">
-           <StoreIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Stores")}>Stores</span>
-         </p>
-         <p className="Users">
-           <PeopleIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("User")}>Users</span>
-         </p>
-         <p className="Drivers">
-           <AccountCircleIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Drivers")}>Drivers</span>
-         </p>
-         <p className="Transation">
-           <PaidIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("Transaction")}>Transation</span>
-         </p>
-         <p className="Sub_Admin">
-           <SupervisorAccountIcon style={{ fontSize: "25px" }} />
-           <span onClick={() => setActive("SubAdmin")}>Sub Admin</span>
-         </p>
-       </div>)
-         } */}
         <div className="panel-navigation">
           <p className="Dashboard">
             <DashboardIcon style={{ fontSize: "25px" }} />{" "}

@@ -11,9 +11,9 @@
 }
 .side-panel .panel-header {
     background-color: rgb(236, 193, 193);
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 .panel-header h3{
     color: #5352ed;
@@ -23,7 +23,7 @@
 }
 .panel-navigation{
     background-color: rgb(198, 223, 246);
-    height: calc(100vh - 16vh);
+    height: calc(100vh);
     padding-top: 10px;
 }
 .panel-navigation p{
@@ -51,7 +51,7 @@
 .header{
     /* border: 2px solid rgb(81, 0, 255); */
     overflow: hidden;
-    height: 122px;
+    height: 85px;
     width: 100%;
     left: 230px;
     background-color: #fff;
@@ -78,7 +78,7 @@
 /* Main Content Container */
 .main-content{
     /* border: 2px solid rgb(255, 0, 247); */
-    height: calc(100vh - 16vh);
+    height: calc(100vh);
     width: 100%;
     margin-top: 2px;
     overflow-y: scroll;
@@ -98,8 +98,7 @@
         margin-right: 40px;
     }
     .side-panel .panel-header {
-        font-size: 20px;
-        padding: 32px;
+        font-size: 22px;
     }
     .panel-navigation p{
         font-size: 20px;
@@ -117,10 +116,19 @@
 @media screen and (max-width: 1166px){
     .side-panel .panel-header {
         font-size: 15px;
-        padding: 30px;
     }
     .header{
-        border: 2px solid rgb(81, 0, 255);
-        height: 110px;
+        /* border: 2px solid rgb(81, 0, 255); */
+        height: 68px;
+    }
+}
+@media screen and (max-width: 971px){
+    .panel-navigation p{
+        font-size: 12px;
+        margin-top: 15px;
+        padding-left: 10px;
+    }
+    .panel-navigation span{
+        margin-left: 8px;
     }
 }
