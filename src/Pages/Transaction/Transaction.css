@@ -95,7 +95,13 @@
     height: calc(100vh - 85px);
     display: flex;
 }
-
+#backToPanel{
+    cursor: pointer;
+    transition: 0.2s;
+}
+#backToPanle:hover{
+    color: red;
+}
 
 
 /* Media Queary */

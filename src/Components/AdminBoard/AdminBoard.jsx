@@ -11,14 +11,24 @@ import StoreIcon from "@mui/icons-material/Store";
 import PeopleIcon from "@mui/icons-material/People";
 import PaidIcon from "@mui/icons-material/Paid";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import TextsmsIcon from '@mui/icons-material/Textsms';
+import StarIcon from '@mui/icons-material/Star';
+import PagesIcon from '@mui/icons-material/Pages';
+
+
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Categories from "../../Pages/Categories/Categories";
 import Order from "../../Pages/Order/Order";
 import Stores from "../../Pages/Stores/Stores";
 import User from "../../Pages/Users/User";
 import Drivers from "../../Pages/Drivers/Drivers";
-import Transaction from "../../Pages/Transaction/Transaction";
+// import Transaction from "../../Pages/Transaction/Transaction";
 import SubAdmin from "../../Pages/Sub Admin/SubAdmin";
+import Banner from "../../Pages/Banner/Banner";
+import Notification from '../../Pages/Notifaction/Notification';
+import Support from '../../Pages/Support/Support';
+import Feedback from '../../Pages/Feedback/Feedback';
 
 const AdminBoard = () => {
   const [active, setActive] = useState("Dashboard");
@@ -63,6 +73,22 @@ const AdminBoard = () => {
             <SupervisorAccountIcon style={{ fontSize: "25px" }} />{" "}
             <span onClick={() => setActive("SubAdmin")}>Sub Admin</span>{" "}
           </p>
+          <p className="Banner">
+            <PagesIcon style={{ fontSize: "25px" }} />{" "}
+            <span onClick={() => setActive("Banner")}>Banner</span>{" "}
+          </p>
+          <p className="Notification">
+            <NotificationsIcon style={{ fontSize: "25px" }} />{" "}
+            <span onClick={() => setActive("Notification")}>Notification</span>{" "}
+          </p>
+          <p className="Support">
+            <TextsmsIcon style={{ fontSize: "25px" }} />{" "}
+            <span onClick={() => setActive("Support")}>Support</span>{" "}
+          </p>
+          <p className="Feedback">
+            <StarIcon style={{ fontSize: "25px" }} />{" "}
+            <span onClick={() => setActive("Feedback")}>Feedback</span>{" "}
+          </p>
         </div>
       </div>
       <div className="Container">
@@ -81,7 +107,12 @@ const AdminBoard = () => {
           {active === "Drivers" && <Drivers />}
           {active === "Transaction" && navigate('/Transaction')}
           {active === "SubAdmin" && <SubAdmin />}
+          {active === "Banner" && <Banner/>}
+          {active === "Notification" && <Notification/>}
+          {active === "Support" && <Support/>}
+          {active === "Feedback" && <Feedback/>}
         </div>
+
       </div>
     </div>
   );

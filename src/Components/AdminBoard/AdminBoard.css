@@ -28,9 +28,9 @@
 }
 .panel-navigation p{
     display: flex;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 20px;
     padding-left: 40px;
     transition: .8s;
 }
@@ -101,7 +101,7 @@
         font-size: 22px;
     }
     .panel-navigation p{
-        font-size: 20px;
+        font-size: 18px;
         margin-top: 30px;
         padding-left: 25px;
     }

@@ -3,6 +3,7 @@ import './App.css';
 import AdminBoard from './Components/AdminBoard/AdminBoard';
 import Transaction from './Pages/Transaction/Transaction';
 import Filter from './Components/Filter/Filter';
+import Banner from './Pages/Banner/Banner';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<AdminBoard/>} />
         <Route path='/Transaction' element={<Transaction/>} />
         <Route path='/Filter' element={<Filter/>}/>
+        <Route path='/Banner' element={<Banner/>}/>
       </Routes>
     </div>
   );
