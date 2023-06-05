@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AmezixAdminWeb/static/css/main.344c6a57.css",
+    "main.js": "/AmezixAdminWeb/static/js/main.f59f30fb.js",
+    "static/media/banner.png": "/AmezixAdminWeb/static/media/banner.6e3aeab74273e73bdd58.png",
+    "index.html": "/AmezixAdminWeb/index.html",
+    "static/media/add.svg": "/AmezixAdminWeb/static/media/add.4ce077e837c37e37af764ec9c05749bb.svg",
+    "main.344c6a57.css.map": "/AmezixAdminWeb/static/css/main.344c6a57.css.map",
+    "main.f59f30fb.js.map": "/AmezixAdminWeb/static/js/main.f59f30fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.344c6a57.css",
+    "static/js/main.f59f30fb.js"
+  ]
+}
