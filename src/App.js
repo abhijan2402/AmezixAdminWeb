@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import AdminBoard from './Components/AdminBoard/AdminBoard';
 import Transaction from './Pages/Transaction/Transaction';
@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<AdminBoard/>} />
-        <Route path='/Transaction' element={<Transaction/>} />
-        <Route path='/Filter' element={<Filter/>}/>
-        <Route path='/Banner' element={<Banner/>}/>
+        <Route path='/AmezixAdminWeb' element={<AdminBoard />} />
+        <Route path='/Transaction' element={<Transaction />} />
+        <Route path='/Filter' element={<Filter />} />
+        <Route path='/Banner' element={<Banner />} />
       </Routes>
     </div>
   );
