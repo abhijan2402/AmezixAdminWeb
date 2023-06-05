@@ -68,6 +68,20 @@ const Order = () => {
                 <td>Dispatched</td>
                 <td>Online</td>
             </tr>
+            <tr>
+                <td>083</td>
+                <td>Ankit</td>
+                <td>Watch</td>
+                <td>Dispatched</td>
+                <td>Online</td>
+            </tr>
+            <tr>
+                <td>083</td>
+                <td>Ankit</td>
+                <td>Watch</td>
+                <td>Dispatched</td>
+                <td>Online</td>
+            </tr>
         </table>
       </div>
     </div>

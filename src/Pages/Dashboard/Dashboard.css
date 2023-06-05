@@ -3,12 +3,13 @@
     padding: 20px 20px;
     background-color: #fff;
     height: calc(100vh - 15.8vh);
+    /* height: 100%; */
 }
 .dashboard-content{
     display: flex;
     /* border: 2px solid red; */
     flex-wrap: wrap;
-    flex-direction: column;
+    padding-bottom: 150px;
 }
 .active_order{
     background-color: rgba(234, 231, 228, 0.953);
