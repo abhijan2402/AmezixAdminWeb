@@ -5,14 +5,17 @@ import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Switch from "@mui/material/Switch";
 import UserBanner from "./UserBanner/UserBanner";
+import EditModal from "./Modals/EditBanner/EditModal";
+import StoreBanner from "./StoreBanner/StoreBanner";
+import DeliveryBanner from "./DeliveryBanner/DeliveryBanner";
 
 const Banner = () => {
-  const [banner, setBanner] = useState("");
+  const [banner, setBanner] = useState("defaultBanner");
+  const [editmodal, setEditModal] = useState(false);
+  const closeEditModal = () => setEditModal(false);
   return (
     <div>
-      {banner === "userBanner" ? (
-        <UserBanner />
-      ) : (
+      {banner === "defaultBanner" && (
         <>
           <div className="Bannercategoriefilter">
             <Filter />
@@ -23,11 +26,11 @@ const Banner = () => {
               <p>20</p>
             </div>
             <div className="Banners">
-              <h4>Store Banner</h4>
+              <h4 onClick={() => setBanner("storeBanner")}>Store Banner</h4>
               <p>15</p>
             </div>
             <div className="Banners">
-              <h4>Delivery Boy</h4>
+              <h4 onClick={() => setBanner("deliveryBanner")}>Delivery Boy</h4>
               <p>45</p>
             </div>
           </div>
@@ -54,7 +57,10 @@ const Banner = () => {
                   <Switch />{" "}
                 </td>
                 <td>
-                  <CreateIcon id="createicon" />
+                  <CreateIcon
+                    id="createicon"
+                    onClick={() => setEditModal(true)}
+                  />
                   <DeleteIcon id="deleteicon" />
                 </td>
               </tr>
@@ -70,94 +76,22 @@ const Banner = () => {
                   <Switch />{" "}
                 </td>
                 <td>
-                  <CreateIcon id="createicon" />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>9478</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>3452</td>
-                <td>4520</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon id="createicon" />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>917</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>4021</td>
-                <td>5000</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon id="createicon" />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>917</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>4021</td>
-                <td>5000</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon id="createicon" />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>917</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>4021</td>
-                <td>5000</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon id="createicon" />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>917</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>4021</td>
-                <td>5000</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon id="createicon" />
+                  <CreateIcon
+                    id="createicon"
+                    onClick={() => setEditModal(true)}
+                  />
                   <DeleteIcon id="deleteicon" />
                 </td>
               </tr>
             </table>
           </div>
+          {editmodal && <EditModal closeEditModal={closeEditModal} />}
         </>
       )}
+
+      {banner === "userBanner" && <UserBanner />}
+      {banner === "storeBanner" && <StoreBanner />}
+      {banner === "deliveryBanner" && <DeliveryBanner />}
     </div>
   );
 };

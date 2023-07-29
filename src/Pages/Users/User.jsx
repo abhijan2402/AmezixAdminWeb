@@ -1,78 +1,85 @@
-import React from 'react'
-import './User.css'
-import Filter from '../../Components/Filter/Filter'
-import CancelIcon from '@mui/icons-material/Cancel';
-import add from '../../assets/add.svg'
+import React, { useEffect, useState } from "react";
+import "./User.css";
+import { getNotes } from "../../API";
+import Filter from "../../Components/Filter/Filter";
+import CancelIcon from "@mui/icons-material/Cancel";
+import add from "../../assets/add.svg";
+import Loader from "../../Components/Loader/Loader";
 
 const User = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let users_list = users.length;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getNotes("storedetail");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="User-container">
-<div className="categoriefilter"><Filter/></div>
-    <div className="User-content">
-          <div className="User">
-          <h4>New Users</h4>
-          <p>45</p>
+      <div className="categoriefilter">
+        <Filter />
+      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="User-content">
+            <div className="User">
+              <h4>New Users</h4>
+              <p>45</p>
+            </div>
+            <div className="User">
+              <h4>Active Users</h4>
+              <p>415</p>
+            </div>
+            <div className="User">
+              <h4>Total Users</h4>
+              <p>485</p>
+            </div>
           </div>
-          <div className="User">
-          <h4>Active Users</h4>
-          <p>415</p>
-          </div>
-          <div className="User">
-          <h4>Total Users</h4>
-          <p>485</p>
-          </div>
-    </div>
-    <div className="User-list">
-          <table style={{width:"100%"}}>
-              <tr>
+          <div className="User-list">
+            <table style={{ width: "100%" }}>
+              <tbody>
+                <tr>
                   <th>#Id</th>
                   <th>Mobile Number</th>
                   <th>Email Id</th>
                   <th>Name</th>
                   <th>Address</th>
                   <th>Last Hight Amount</th>
-              </tr>
-              <tr>
+                </tr>
+                <tr>
                   <td>043</td>
                   <td>91735689478</td>
                   <td>xys@gmail.com</td>
                   <td>Ram</td>
                   <td>Jagathpura</td>
                   <td>425</td>
-                  <p><CancelIcon/></p>
-              </tr>
-              <tr>
-                  <td>03</td>
-                  <td>91735689478</td>
-                  <td>xys@gmail.com</td>
-                  <td>Shyam</td>
-                  <td>Civil Lines</td>
-                  <td>725</td>
-                  <p><CancelIcon/></p>
-              </tr>
-              <tr>
-                  <td>035</td>
-                  <td>91735689478</td>
-                  <td>xys@gmail.com</td>
-                  <td>Balram</td>
-                  <td>Bassi</td>
-                  <td>725</td>
-                  <p><CancelIcon/></p>
-              </tr>
-              <tr>
-                  <td>083</td>
-                  <td>91735689478</td>
-                  <td>xys@gmail.com</td>
-                  <td>Sita</td>
-                  <td>Chomu puliya</td>
-                  <td>325</td>
-                  <p><CancelIcon/></p>
-              </tr>
-          </table>
+                  <p>
+                    <CancelIcon />
+                  </p>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="Useraddnewbtn">
+            <button>
+              Add New <img src={add} alt="" />
+            </button>
+          </div>
+        </>
+      )}
     </div>
-    <div className="Useraddnewbtn"><button>Add New <img src={add} alt="" /></button></div>
-  </div>
-  )
-}
+  );
+};
 
-export default User
+export default User;

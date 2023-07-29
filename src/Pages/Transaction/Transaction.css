@@ -52,7 +52,6 @@
 }
 .Users span:hover{
     color: blue;
-    text-decoration: underline;
 }
 .transaction-side-panel{
     background-color: rgb(198, 223, 246);
@@ -77,7 +76,6 @@
 }
 .transaction-navigation p :hover{
     color: blue;
-    text-decoration: underline;
 }
 
 .transaction-maincontent{

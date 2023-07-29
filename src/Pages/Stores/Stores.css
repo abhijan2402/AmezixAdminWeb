@@ -2,6 +2,7 @@
     padding: 20px 20px;
     background-color:#fff;
     height: calc(100vh - 15.8vh);
+    margin-bottom: 15%;
 }
 .store-content{
     display: flex;
@@ -13,7 +14,7 @@
     width: 30%;
     text-align: center;
     padding: 40px;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 5px;
     margin-top: 50px;
     cursor: pointer;
@@ -38,11 +39,12 @@
     padding: 8px;
     background-color: rgb(198, 223, 246);
 }
-.store-list p {
+.store-list .tb-icon {
     text-align: center;
     width: 30px;
     margin-left: 20px;
     cursor: pointer;
+    background-color: transparent;
 }
 .addnewbtn{
     width: 100%;

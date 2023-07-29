@@ -1,40 +1,46 @@
-import React from "react";
-import './Categories.css'
-import Filter from '../../Components/Filter/Filter'
+import React, { useEffect, useState } from "react";
+import "./Categories.css";
+import { getNotes } from "../../API";
+import Filter from "../../Components/Filter/Filter";
+import Loader from "../../Components/Loader/Loader";
 
 const Categories = () => {
+  const [category, setcategory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getNotes("caterory");
+        setcategory(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }finally{
+        setLoading(false)
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="categorie-container">
-      <div className="categoriefilter"><Filter/></div>
-      <div className="categorie-content">
-        <div className="electronic">
-          <h4>Electronics</h4>
-        </div>
-        <div className="electronic">
-          <h4>Dress And Clothes</h4>
-        </div>
-        <div className="electronic">
-          <h4>Cosmetic</h4>
-        </div>
-        <div className="electronic">
-          <h4>Toys And Babies</h4>
-        </div>
-        <div className="electronic">
-          <h4>Books And Magazine</h4>
-        </div>
-        <div className="electronic">
-          <h4>Dryfruits And Nuts</h4>
-        </div>
-        <div className="electronic">
-          <h4>Shoes</h4>
-        </div>
-        <div className="electronic">
-          <h4>Grocery</h4>
-        </div>
-        <div className="electronic">
-          <h4>Others</h4>
-        </div>
+      <div className="categoriefilter">
+        <Filter />
       </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="categorie-content">
+            {category.map((category, index) => {
+              return (
+                <div className="electronic" key={index}>
+                  <h4>{category.name}</h4>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 };

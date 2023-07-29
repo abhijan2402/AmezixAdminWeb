@@ -18,13 +18,13 @@ const Support = () => {
       </div>
       <div className="Support-content" id="list">
         <div className="Supports">
-          <h4>User Notification</h4>
+          <h4>User Support</h4>
         </div>
         <div className="Supports">
-          <h4>Store Notification</h4>
+          <h4>Store Support</h4>
         </div>
         <div className="Supports">
-          <h4>Delivery Notification</h4>
+          <h4>Delivery Support</h4>
         </div>
       </div>
       <div className="Support-list">

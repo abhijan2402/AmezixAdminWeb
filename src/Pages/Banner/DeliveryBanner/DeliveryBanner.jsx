@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./UserBanner.css";
+// import "./UserBanner.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "../Banner";
 import Filter from "../../../Components/Filter/Filter";
@@ -33,7 +33,7 @@ const UserBanner = () => {
                 onClick={() => setbackBanner("backBanner")}
                 id="backToBanner"
               />
-              User Banner
+              Delivery Banner
             </p>
           </div>
           <div className="banner-content">

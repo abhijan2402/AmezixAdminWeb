@@ -34,10 +34,10 @@
     padding-left: 40px;
     transition: .8s;
 }
-.panel-navigation span:hover{
-    color: blue;
-    text-decoration: underline;
+.panel-navigation  p span:hover{
+    /* color: blue;  */
 }
+
 .panel-navigation span{
     margin-left: 15px;
 }
@@ -102,14 +102,14 @@
     }
     .panel-navigation p{
         font-size: 18px;
-        margin-top: 30px;
+        margin-top: 20px;
         padding-left: 25px;
     }
 }
 @media screen and (max-width: 1184px){
     .panel-navigation p{
         font-size: 15px;
-        margin-top: 20px;
+        margin-top: 18px;
         padding-left: 20px;
     }
 }
