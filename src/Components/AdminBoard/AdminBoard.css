@@ -1,4 +1,4 @@
-.main-Container{
+.main-Container {
     /* border: 2px solid red; */
     display: flex;
     height: 100vh;
@@ -6,27 +6,32 @@
 }
 
 /* Side Panel */
-.side-panel{
+.side-panel {
     width: 15%;
 }
+
 .side-panel .panel-header {
     background-color: rgb(236, 193, 193);
     font-size: 22px;
     text-align: center;
     padding: 10px;
 }
-.panel-header h3{
+
+.panel-header h3 {
     color: #5352ed;
 }
-.panel-header h4{
+
+.panel-header h4 {
     padding-top: 10px;
 }
-.panel-navigation{
+
+.panel-navigation {
     background-color: rgb(198, 223, 246);
     height: calc(100vh);
     padding-top: 10px;
 }
-.panel-navigation p{
+
+.panel-navigation p {
     display: flex;
     font-size: 20px;
     cursor: pointer;
@@ -34,21 +39,24 @@
     padding-left: 40px;
     transition: .8s;
 }
-.panel-navigation  p span:hover{
-    /* color: blue;  */
+
+.panel-navigation span:hover {
+    color: blue;
+    /* text-decoration: underline; */
 }
 
-.panel-navigation span{
+.panel-navigation span {
     margin-left: 15px;
 }
-.Container{
+
+.Container {
     /* border: 4px solid rgb(0, 244, 16); */
     width: 85%;
 }
 
 
 /* Header */
-.header{
+.header {
     /* border: 2px solid rgb(81, 0, 255); */
     overflow: hidden;
     height: 85px;
@@ -60,7 +68,8 @@
     justify-content: end;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-.header .logout-btn{
+
+.header .logout-btn {
     font-size: 20px;
     padding: 12px 40px;
     border-radius: 4px;
@@ -71,64 +80,73 @@
     transition: 0.3s;
     cursor: pointer;
 }
+
 .header .logout-btn:hover {
     background-color: red;
 }
 
 /* Main Content Container */
-.main-content{
+.main-content {
     /* border: 2px solid rgb(255, 0, 247); */
     height: calc(100vh);
     width: 100%;
     margin-top: 2px;
     overflow-y: scroll;
 }
-.main-content::-webkit-scrollbar { 
+
+.main-content::-webkit-scrollbar {
     width: 0 !important;
-    display: none; 
-  }
+    display: none;
+}
 
 
 
 /* Media Queary */
 @media screen and (max-width: 1496px) {
-    .header .logout-btn{
+    .header .logout-btn {
         font-size: 18px;
         padding: 10px 30px;
         margin-right: 40px;
     }
+
     .side-panel .panel-header {
         font-size: 22px;
     }
-    .panel-navigation p{
+
+    .panel-navigation p {
         font-size: 18px;
-        margin-top: 20px;
+        margin-top: 30px;
         padding-left: 25px;
     }
 }
-@media screen and (max-width: 1184px){
-    .panel-navigation p{
+
+@media screen and (max-width: 1184px) {
+    .panel-navigation p {
         font-size: 15px;
-        margin-top: 18px;
+        margin-top: 20px;
         padding-left: 20px;
     }
 }
-@media screen and (max-width: 1166px){
+
+@media screen and (max-width: 1166px) {
     .side-panel .panel-header {
         font-size: 15px;
     }
-    .header{
+
+    .header {
         /* border: 2px solid rgb(81, 0, 255); */
         height: 68px;
     }
 }
-@media screen and (max-width: 971px){
-    .panel-navigation p{
+
+@media screen and (max-width: 971px) {
+    .panel-navigation p {
         font-size: 12px;
         margin-top: 15px;
         padding-left: 10px;
     }
-    .panel-navigation span{
+
+    .panel-navigation span {
         margin-left: 8px;
     }
 }
