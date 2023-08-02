@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getNotes } from "../../API";
 import "./Banner.css";
 import Filter from "../../Components/Filter/Filter";
 import CreateIcon from "@mui/icons-material/Create";
@@ -8,11 +9,29 @@ import UserBanner from "./UserBanner/UserBanner";
 import EditModal from "./Modals/EditBanner/EditModal";
 import StoreBanner from "./StoreBanner/StoreBanner";
 import DeliveryBanner from "./DeliveryBanner/DeliveryBanner";
+import Loader from '../../Components/Loader/Loader'
 
 const Banner = () => {
   const [banner, setBanner] = useState("defaultBanner");
   const [editmodal, setEditModal] = useState(false);
   const closeEditModal = () => setEditModal(false);
+  const [checked, setChecked] = React.useState(true);
+
+  const [bannerData, setBannerData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getNotes("banner");
+        setBannerData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       {banner === "defaultBanner" && (
@@ -20,7 +39,13 @@ const Banner = () => {
           <div className="Bannercategoriefilter">
             <Filter />
           </div>
-          <div className="Banner-content" id="list">
+
+          {
+            loading ? (
+              <Loader/>
+            ) : (
+              <>
+               <div className="Banner-content" id="list">
             <div className="Banners">
               <h4 onClick={() => setBanner("userBanner")}>User Banner</h4>
               <p>20</p>
@@ -36,56 +61,57 @@ const Banner = () => {
           </div>
           <div className="Banner-list">
             <table style={{ width: "100%" }}>
-              <tr>
-                <th>#Id</th>
-                <th>Title</th>
-                <th>Learn More</th>
-                <th>Latest Update</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-              <tr>
-                <td>01</td>
-                <td>356</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>1425</td>
-                <td>5784</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon
-                    id="createicon"
-                    onClick={() => setEditModal(true)}
-                  />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td>5689</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>1235</td>
-                <td>7854</td>
-                <td>
-                  <Switch />{" "}
-                </td>
-                <td>
-                  <CreateIcon
-                    id="createicon"
-                    onClick={() => setEditModal(true)}
-                  />
-                  <DeleteIcon id="deleteicon" />
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>#Id</th>
+                  <th>Title</th>
+                  <th>Learn More</th>
+                  <th>Last Update</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                {bannerData.map((bannerData, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{bannerData.id}</td>
+                      <td>{bannerData.title}</td>
+                      <td>
+                        <Switch
+                          checked={
+                            bannerData.learnmoreactive === "true"
+                              ? checked
+                              : null
+                          }
+                        />
+                      </td>
+                      <td>{bannerData.lastupdate}</td>
+                      <td>{bannerData.role}</td>
+                      <td>
+                        <Switch
+                          checked={
+                            bannerData.status === "active" ? checked : null
+                          }
+                        />
+                      </td>
+                      <td>
+                        <CreateIcon
+                          id="createicon"
+                          onClick={() => setEditModal(true)}
+                        />
+                        <DeleteIcon id="deleteicon" />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
           {editmodal && <EditModal closeEditModal={closeEditModal} />}
+              </>
+            )
+          }
+         
         </>
       )}
 

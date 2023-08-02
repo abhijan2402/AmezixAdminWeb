@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getNotes } from "../../../API";
 // import "./UserBanner.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "../Banner";
@@ -10,25 +11,38 @@ import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Switch from "@mui/material/Switch";
 
-import pic from '../../../assets/banner.png'
+import pic from "../../../assets/banner.png";
 
 const UserBanner = () => {
   const [backbanner, setbackBanner] = useState("");
   const [modal, setModal] = useState(false);
   const [editmodal, setEditModal] = useState(false);
-
-
+  const [checked, setChecked] = React.useState(true);
 
   const closeModal = () => setModal(false);
-  const closeEditModal = () => setEditModal(false)
-
+  const closeEditModal = () => setEditModal(false);
+  const [deliveryBanner, setDeliveryBanner] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getNotes("banner");
+        setDeliveryBanner(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       {backbanner === "" ? (
         <>
           <div className="user-banner-header">
             <Filter />
-            <p className="banner-para-header" >
+            <p className="banner-para-header">
               <ArrowBackIosIcon
                 onClick={() => setbackBanner("backBanner")}
                 id="backToBanner"
@@ -42,13 +56,10 @@ const UserBanner = () => {
                 <button className="learn-more-btn">Learn More</button>
               </div>
               <div className="addicon" onClick={() => setModal(true)}>
-                <AddIcon
-                  style={{ color: "white" }}
-                  
-                />
-              </div>             
+                <AddIcon style={{ color: "white" }} />
+              </div>
             </div>
-            
+
             <div className="UserBanner-list">
               <table style={{ width: "100%" }}>
                 <tr>
@@ -60,75 +71,55 @@ const UserBanner = () => {
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-                <tr>
-                  <td>01</td>
-                  <td>356</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>1425</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>5689</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>1235</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>9478</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>3452</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>917</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>4021</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
+                {deliveryBanner.map((deliveryBanner, index) => {
+                  return (
+                    <tr key={index}>
+                      {deliveryBanner.role === "Delivery" ? (
+                        <>
+                          <td>{deliveryBanner.id}</td>
+                          <td>{deliveryBanner.title}</td>
+                          <td>
+                            <Switch
+                              checked={
+                                deliveryBanner.learnmoreactive === "true"
+                                  ? checked
+                                  : null
+                              }
+                            />
+                          </td>
+                          <td>{deliveryBanner.lastupdate}</td>
+                          <td>
+                            <img
+                              src={deliveryBanner.image}
+                              alt="loading...."
+                              style={{ width: "100px", height: "50px" }}
+                            />
+                          </td>
+                          <td>
+                            <Switch
+                              checked={
+                                deliveryBanner.status === "active"
+                                  ? checked
+                                  : null
+                              }
+                            />
+                          </td>
+                          <td>
+                            <CreateIcon
+                              id="createicon"
+                              onClick={() => setEditModal(true)}
+                            />
+                            <DeleteIcon id="deleteicon" />
+                          </td>
+                        </>
+                      ) : null}
+                    </tr>
+                  );
+                })}
               </table>
             </div>
-           
           </div>
-          {modal && <Modal closeModal={closeModal} />}
+          {modal && <Modal closeModal={closeModal} role={"Delivery"} />}
           {editmodal && <EditModal closeEditModal={closeEditModal} />}
         </>
       ) : (

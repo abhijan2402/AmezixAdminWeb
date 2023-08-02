@@ -13,7 +13,7 @@ const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getNotes("storedetail");
+        const response = await getNotes("customer");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -35,15 +35,15 @@ const User = () => {
           <div className="User-content">
             <div className="User">
               <h4>New Users</h4>
-              <p>45</p>
+              <p>{users_list}</p>
             </div>
             <div className="User">
               <h4>Active Users</h4>
-              <p>415</p>
+              <p>{users_list}</p>
             </div>
             <div className="User">
               <h4>Total Users</h4>
-              <p>485</p>
+              <p>{users_list}</p>
             </div>
           </div>
           <div className="User-list">
@@ -55,19 +55,23 @@ const User = () => {
                   <th>Email Id</th>
                   <th>Name</th>
                   <th>Address</th>
-                  <th>Last Hight Amount</th>
+                  <th>Last High Amount</th>
                 </tr>
-                <tr>
-                  <td>043</td>
-                  <td>91735689478</td>
-                  <td>xys@gmail.com</td>
-                  <td>Ram</td>
-                  <td>Jagathpura</td>
-                  <td>425</td>
-                  <p>
-                    <CancelIcon />
-                  </p>
-                </tr>
+                {users.map((user, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{user.id}</td>
+                      <td>{user.phone}</td>
+                      <td>{user.email}</td>
+                      <td>{user.name}</td>
+                      <td>{user.address}</td>
+                      <td>425</td>
+                      <p>
+                        <CancelIcon />
+                      </p>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

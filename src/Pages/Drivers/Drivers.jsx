@@ -72,7 +72,7 @@ const Drivers = () => {
                       <td>{drivers.phone}</td>
                       <td>2000</td>
                       <td>
-                        {drivers.profilestatus === "created" && "verfied"}
+                        {drivers.profilestatus === "done" ? "verified" : "un-verified"}
                       </td>
                       <td>{drivers.address}</td>
                     </tr>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./UserBanner.css";
+import { getNotes } from "../../../API";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "../Banner";
 import Filter from "../../../Components/Filter/Filter";
@@ -10,17 +11,32 @@ import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Switch from "@mui/material/Switch";
 
-import pic from '../../../assets/banner.png'
+import pic from "../../../assets/banner.png";
 
 const UserBanner = () => {
   const [backbanner, setbackBanner] = useState("");
   const [modal, setModal] = useState(false);
   const [editmodal, setEditModal] = useState(false);
-
-
+  const [checked, setChecked] = React.useState(true);
 
   const closeModal = () => setModal(false);
-  const closeEditModal = () => setEditModal(false)
+  const closeEditModal = () => setEditModal(false);
+
+  const [userBanner, setUserBanner] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getNotes("banner");
+        setUserBanner(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -28,7 +44,7 @@ const UserBanner = () => {
         <>
           <div className="user-banner-header">
             <Filter />
-            <p className="banner-para-header" >
+            <p className="banner-para-header">
               <ArrowBackIosIcon
                 onClick={() => setbackBanner("backBanner")}
                 id="backToBanner"
@@ -42,94 +58,72 @@ const UserBanner = () => {
                 <button className="learn-more-btn">Learn More</button>
               </div>
               <div className="addicon" onClick={() => setModal(true)}>
-                <AddIcon
-                  style={{ color: "white" }}
-                  
-                />
-              </div>             
+                <AddIcon style={{ color: "white" }} />
+              </div>
             </div>
-            
+
             <div className="UserBanner-list">
               <table style={{ width: "100%" }}>
-                <tr>
-                  <th>#Id</th>
-                  <th>Title</th>
-                  <th>Learn More</th>
-                  <th>Latest Update</th>
-                  <th>Images</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                <tr>
-                  <td>01</td>
-                  <td>356</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>1425</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>5689</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>1235</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>9478</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>3452</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>917</td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>4021</td>
-                  <td><img src={pic} alt="" style={{width:"100px", height:'50px'}}/></td>
-                  <td>
-                    <Switch />
-                  </td>
-                  <td>
-                    <CreateIcon id="createicon" onClick={() => setEditModal(true)}/>
-                    <DeleteIcon id="deleteicon" />
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>#Id</th>
+                    <th>Title</th>
+                    <th>Learn More</th>
+                    <th>Last Update</th>
+                    <th>Images</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+
+                  {userBanner.map((banner, index) => {
+                    return (
+                      <tr key={index}>
+                        {banner.role === "User" ? (
+                          <>
+                            <td>{banner.id}</td>
+                            <td>{banner.title}</td>
+                            <td>
+                              <Switch
+                                checked={
+                                  banner.learnmoreactive === "true"
+                                    ? checked
+                                    : null
+                                }
+                              />
+                            </td>
+                            <td>{banner.lastupdate}</td>
+                            <td>
+                              <img
+                                src={banner.image}
+                                alt="loading.."
+                                style={{ width: "100px", height: "50px" }}
+                              />
+                            </td>
+                            <td>
+                              <Switch
+                                checked={
+                                  banner.status === "active" ? checked : null
+                                }
+                              />
+                            </td>
+                            <td>
+                              <CreateIcon
+                                id="createicon"
+                                onClick={() => setEditModal(true)}
+                              />
+                              <DeleteIcon id="deleteicon" />
+                            </td>
+                          </>
+                        ) : null}
+                      </tr>
+                    );
+                  })}
+                </tbody>
               </table>
             </div>
-           
           </div>
-          {modal && <Modal closeModal={closeModal} />}
-          {editmodal && <EditModal closeEditModal={closeEditModal} />}
+          {modal && <Modal closeModal={() => closeModal()} role={"User"} />}
+          {editmodal && <EditModal closeEditModal={() => closeEditModal()} />}
         </>
       ) : (
         <Banner />
