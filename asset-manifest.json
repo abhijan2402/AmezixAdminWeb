@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AmezixAdminWeb/static/css/main.cd7c7cf7.css",
-    "main.js": "/AmezixAdminWeb/static/js/main.df5006f8.js",
-    "static/media/banner.png": "/AmezixAdminWeb/static/media/banner.6e3aeab74273e73bdd58.png",
-    "index.html": "/AmezixAdminWeb/index.html",
-    "static/media/add.svg": "/AmezixAdminWeb/static/media/add.4ce077e837c37e37af764ec9c05749bb.svg",
-    "main.cd7c7cf7.css.map": "/AmezixAdminWeb/static/css/main.cd7c7cf7.css.map",
-    "main.df5006f8.js.map": "/AmezixAdminWeb/static/js/main.df5006f8.js.map"
+    "main.css": "/static/css/main.46f54e01.css",
+    "main.js": "/static/js/main.55d68f67.js",
+    "static/media/banner.png": "/static/media/banner.6e3aeab74273e73bdd58.png",
+    "index.html": "/index.html",
+    "static/media/add.svg": "/static/media/add.4ce077e837c37e37af764ec9c05749bb.svg",
+    "main.46f54e01.css.map": "/static/css/main.46f54e01.css.map",
+    "main.55d68f67.js.map": "/static/js/main.55d68f67.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd7c7cf7.css",
-    "static/js/main.df5006f8.js"
+    "static/css/main.46f54e01.css",
+    "static/js/main.55d68f67.js"
   ]
 }
