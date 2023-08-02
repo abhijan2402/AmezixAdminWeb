@@ -16,8 +16,8 @@ const Feedback = () => {
         setFeedback(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -28,13 +28,13 @@ const Feedback = () => {
         <Filter />
       </div>
       {loading ? (
-        <Loader/>
+        <Loader />
       ) : (
         <>
           <div className="Feedback-content" id="list">
             <div className="Feedbacks">
               <h4>User Feedback</h4>
-              <p>20</p>
+              <p>{feedback_list}</p>
             </div>
             <div className="Feedbacks">
               <h4>Store Feedback</h4>
@@ -59,17 +59,21 @@ const Feedback = () => {
                     Status <ArrowDropDownIcon id="arrow" />
                   </th>
                   <th>
-                    Star <ArrowDropDownIcon id="arrow" />
+                    Rating <ArrowDropDownIcon id="arrow" />
                   </th>
                 </tr>
-                <tr>
-                  <td>01</td>
-                  <td>356</td>
-                  <td>Big bolw City</td>
-                  <td>1425</td>
-                  <td>5784</td>
-                  <td>5784</td>
-                </tr>
+                {feedback.map((feedback, index) => {
+                  return (
+                    <tr>
+                      <td>{feedback.shopid}</td>
+                      <td>{feedback.fmessage}</td>
+                      <td>Big bolw City</td>
+                      <td>1425</td>
+                      <td>5784</td>
+                      <td>{feedback.frating}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
