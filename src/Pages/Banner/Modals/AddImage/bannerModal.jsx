@@ -7,8 +7,6 @@ import { db, storage } from '../../../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { NameSeperator } from "../../../../Components/fileNameSeparator";
 const BannerModal = ({ closeModal, role }) => {
-  const [image, setIMage] = useState(null);
-  const [fileName, setFileName] = useState("No selected File");
   // const [learnMore, setLearnMore] = useState();
   const [title, setTitle] = useState();
   const [link, setLink] = useState();
@@ -88,7 +86,7 @@ const BannerModal = ({ closeModal, role }) => {
     console.log(namesArray);
     if (namesArray[0] === "image") {
       settitleImage(e.target.files[0])
-      // getImage(e.target.files[0]);
+      // getImage(e.target.files[0].name);
       // setName(e.target.files[0].name)
     }
     else {
@@ -121,20 +119,9 @@ const BannerModal = ({ closeModal, role }) => {
                   className="image-container"
                   onClick={() => document.querySelector(".input-field").click()}
                 >
-                  <input
-                    type="file"
-                    accept="image/*"
-                    className="input-field"
-                    hidden
-                    onChange={({ target: { files } }) => {
-                      files[0] && setFileName(files[0].name);
-                      if (files) {
-                        setIMage(URL.createObjectURL(files[0]));
-                      }
-                    }}
-                  />
-                  {image ? (
-                    <img src={image} alt="File_Image"></img>
+                  <input hidden className="input-field" type="file" id='file_55' onChange={handleImageValue} />
+                  {titleImage  ? (
+                    <img src={URL.createObjectURL(titleImage)} alt="File_Image"></img>
                   ) : (
                     <h3
                       style={{
@@ -175,7 +162,7 @@ const BannerModal = ({ closeModal, role }) => {
 
               </div>
               <button onClick={getDownloadUrl}>tbn</button>
-              <input type="file" id='file_55' onChange={handleImageValue} />
+              {/* <input type="file" id='file_55' onChange={handleImageValue} /> */}
             </div>
           </div>
         </div>
