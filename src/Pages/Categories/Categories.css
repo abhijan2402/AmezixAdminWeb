@@ -1,56 +1,91 @@
-.categorie-container{
-    padding: 20px 20px;
-    background-color: #fff;
-    height: calc(100vh - 15.8vh);
+.categorie-container {
+  padding: 20px 20px;
+  background-color: #fff;
+  height: calc(100vh - 15.8vh);
 }
-.categorie-content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-bottom: 150px;
+.categorie-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 150px;
 }
-.electronic{
-    background-color: rgba(181, 209, 240, 0.953);
-    width: 30%;
-    text-align: center;
-    padding: 40px;
-    font-size: 20px;
-    border-radius: 5px;
-    margin-top: 50px;
-    cursor: pointer;
-    transition: 0.5s;
+.cat_Card {
+  height: 250px;
+  width: 18%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: rgba(50, 50, 93, 0.514) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.547) 0px 1px 3px -1px;
 }
-.electronic:hover{
-    background-color: rgb(236, 193, 193);
+.product_img {
+  padding: 4%;
+  width: 100%;
+  height: 200px;
 }
-.categoriefilter{
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: flex-end;
+.product_img img {
+  width: 100%;
+  height: 100%;
+}
+.product_name {
+  padding: 6% 2%;
+}
+.product_name h5 {
+  font-size: 20px;
+  text-align: center;
+}
+.cat_add_btn {
+  /* border: 2px solid red; */
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+.cat_btn {
+  font-size: medium;
+  padding: 10px 15px;
 }
 
+.electronic {
+  background-color: rgba(181, 209, 240, 0.953);
+  width: 30%;
+  text-align: center;
+  padding: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.electronic:hover {
+  background-color: rgb(236, 193, 193);
+}
+.categoriefilter {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* Media Queary */
 @media screen and (max-width: 1496px) {
-    .electronic{
-        width: 25%;
-        margin-left: 1px;
-        padding: 40px;
-        font-size: 18px; 
-        margin-top: 40px;
-    }
+  .electronic {
+    width: 25%;
+    margin-left: 1px;
+    padding: 40px;
+    font-size: 18px;
+    margin-top: 40px;
+  }
 }
 @media screen and (max-width: 1357px) {
-    .electronic{
-        width: 25%;
-        padding: 35px;
-        font-size: 20px; 
-    }
+  .electronic {
+    width: 25%;
+    padding: 35px;
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 1110px) {
-    .electronic{
-        width: 25%;
-        padding: 30px;
-        font-size: 18px; 
-    }
+  .electronic {
+    width: 25%;
+    padding: 30px;
+    font-size: 18px;
+  }
 }

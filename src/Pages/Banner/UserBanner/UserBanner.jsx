@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./UserBanner.css";
-import { getNotes } from "../../../API";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Banner from "../Banner";
 import Filter from "../../../Components/Filter/Filter";
 import Modal from "../Modals/AddImage/bannerModal";
 import EditModal from "../Modals/EditBanner/EditModal";
+import { getNotes, deleteData } from "../../../API";
+import Loader from "../../../Components/Loader/Loader";
+
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import AddIcon from "@mui/icons-material/Add";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Switch from "@mui/material/Switch";
-
-import pic from "../../../assets/banner.png";
 
 const UserBanner = () => {
   const [backbanner, setbackBanner] = useState("");
@@ -21,9 +21,22 @@ const UserBanner = () => {
 
   const closeModal = () => setModal(false);
   const closeEditModal = () => setEditModal(false);
+  const [loading, setLoading] = useState(true);
 
   const [userBanner, setUserBanner] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [userCount, setUserCount] = useState([]);
+  const [selectedUserData, setSelectedUserData] = useState(null);
+
+  // Function to calculate the number of users
+  // const calculateUserCount = (bannerData) => {
+  //   const users = bannerData.filter((banner) => banner.role === "User");
+  //   const uc = users.length;
+  //   setUserCount([...userCount, uc]);
+  // };
+  // useEffect(() => {
+  //   calculateUserCount(userBanner);
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +50,28 @@ const UserBanner = () => {
     };
     fetchData();
   }, []);
+
+  // Deleting the Table data
+  const delete_Data = async (id, table_name) => {
+    console.log("id and tablename", id, table_name);
+    try {
+      await deleteData({ id, table_name });
+      const response = await getNotes("banner");
+      setUserBanner(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  // Edit Table
+  const editTable = (id) => {
+    let newdata = userBanner.find((element) => {
+      return element.id === id;
+    });
+    setSelectedUserData(newdata);
+    console.log(newdata);
+    setEditModal(true);
+  };
 
   return (
     <div>
@@ -61,72 +96,89 @@ const UserBanner = () => {
                 <AddIcon style={{ color: "white" }} />
               </div>
             </div>
-
-            <div className="UserBanner-list">
-              <table style={{ width: "100%" }}>
-                <tbody>
-                  <tr>
-                    <th>#Id</th>
-                    <th>Title</th>
-                    <th>Learn More</th>
-                    <th>Last Update</th>
-                    <th>Images</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-
-                  {userBanner.map((banner, index) => {
-                    return (
-                      <tr key={index}>
-                        {banner.role === "User" ? (
-                          <>
-                            <td>{banner.id}</td>
-                            <td>{banner.title}</td>
-                            <td>
-                              <Switch
-                                checked={
-                                  banner.learnmoreactive === "true"
-                                    ? checked
-                                    : null
-                                }
-                              />
-                            </td>
-                            <td>{banner.lastupdate}</td>
-                            <td>
-                              <img
-                                src={banner.image}
-                                alt="loading.."
-                                style={{ width: "100px", height: "50px" }}
-                              />
-                            </td>
-                            <td>
-                              <Switch
-                                checked={
-                                  banner.status === "active" ? checked : null
-                                }
-                              />
-                            </td>
-                            <td>
-                              <CreateIcon
-                                id="createicon"
-                                onClick={() => setEditModal(true)}
-                              />
-                              <DeleteIcon id="deleteicon" />
-                            </td>
-                          </>
-                        ) : null}
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <div className="UserBanner-list">
+                  <table style={{ width: "100%" }}>
+                    <tbody>
+                      <tr>
+                        <th>#Id</th>
+                        <th>Title</th>
+                        <th>Learn More</th>
+                        <th>Last Update</th>
+                        <th>Images</th>
+                        <th>Status</th>
+                        <th>Action</th>
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+
+                      {userBanner.map((banner, index) => {
+                        return (
+                          <tr key={index}>
+                            {banner.role === "User" ? (
+                              <>
+                                <td>{banner.id}</td>
+                                <td>{banner.title}</td>
+                                <td>
+                                  <Switch
+                                    checked={
+                                      banner.learnmoreactive === "true"
+                                        ? checked
+                                        : null
+                                    }
+                                  />
+                                </td>
+                                <td>{banner.lastupdate}</td>
+                                <td>
+                                  <img
+                                    src={banner.image}
+                                    alt="loading.."
+                                    style={{ width: "100px", height: "50px" }}
+                                  />
+                                </td>
+                                <td>
+                                  <Switch
+                                    checked={
+                                      banner.status === "active"
+                                        ? checked
+                                        : null
+                                    }
+                                  />
+                                </td>
+                                <td>
+                                  <CreateIcon
+                                    id="createicon"
+                                    onClick={() => editTable(banner.id)}
+                                  />
+                                  <DeleteIcon
+                                    id="deleteicon"
+                                    onClick={() =>
+                                      delete_Data(banner.id, "banner")
+                                    }
+                                  />
+                                </td>
+                              </>
+                            ) : null}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
           </div>
           {modal && <Modal closeModal={() => closeModal()} role={"User"} />}
-          {editmodal && <EditModal closeEditModal={() => closeEditModal()} />}
+          {editmodal && (
+            <EditModal
+              closeEditModal={() => closeEditModal()}
+              selectedData={selectedUserData}
+            />
+          )}
         </>
       ) : (
-        <Banner />
+        <Banner userCount={userCount} />
       )}
     </div>
   );

@@ -1,15 +1,18 @@
 export const getNotes = async (data) => {
   try {
-    const response = await fetch("http://ec2-3-108-56-128.ap-south-1.compute.amazonaws.com:8001/getAllData", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        tablename: data,
-      }),
-    });
+    const response = await fetch(
+      "http://ec2-3-108-56-128.ap-south-1.compute.amazonaws.com:8001/getAllData",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          tablename: data,
+        }),
+      }
+    );
     const res = await response.json();
     console.log(res);
     return res;
@@ -18,22 +21,24 @@ export const getNotes = async (data) => {
   }
 };
 
-// export const bannerDetails = async() => {
-//   try {
-//     const response = await fetch("http://ec2-3-108-56-128.ap-south-1.compute.amazonaws.com:8001/Banner", {
-//       method: "POST",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-        
-//       }),
-//     });
-//     const res = await response.json();
-//     console.log(res);
-//     return res;
-//   } catch (error) {
-//     console.log("Error", error)
-//   }
-// }
+export const deleteData = async (data) => {
+  console.log("second", data);
+  try {
+    const response = await fetch(
+      "http://ec2-3-108-56-128.ap-south-1.compute.amazonaws.com:8001/delete",
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: data.id,
+          tablename: data.table_name,
+        }),
+      }
+    );
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};

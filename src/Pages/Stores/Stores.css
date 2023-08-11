@@ -68,7 +68,7 @@ button{
 button:hover{
     background-color: rgba(80, 137, 250, 0.468);
 }
-img{
+.addnewbtn img{
     height: 25px;
     width: 25px;
     margin-left: 10px;

@@ -25,7 +25,7 @@
 .User-list{
     margin-top: 30px;
     width: 100%;
-    padding-bottom: 170px;
+    /* padding-bottom: 170px; */
 }
 .User-list th{
     font-size: 20px;
@@ -49,6 +49,7 @@
     display: flex;
     justify-content: right;
     margin-top: 20px;
+    padding-bottom: 170px;
 }
 button{
     padding: 8px 25px;
@@ -63,7 +64,7 @@ button{
     display: flex;
     color: rgba(0, 0, 0, 0.852);
 }
-button:hover{
+ button:hover{
     background-color: rgb(34, 105, 248);
 }
 .User-list img{

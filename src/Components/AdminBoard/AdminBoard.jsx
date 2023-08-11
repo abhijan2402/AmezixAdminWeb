@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import TextsmsIcon from "@mui/icons-material/Textsms";
 import StarIcon from "@mui/icons-material/Star";
 import PagesIcon from "@mui/icons-material/Pages";
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Categories from "../../Pages/Categories/Categories";
@@ -30,6 +31,7 @@ import Banner from "../../Pages/Banner/Banner";
 import Notification from "../../Pages/Notifaction/Notification";
 import Support from "../../Pages/Support/Support";
 import Feedback from "../../Pages/Feedback/Feedback";
+import Delivery from '../../Pages/Delivery/Delivery';
 
 const AdminBoard = () => {
   const [active, setActive] = useState("Dashboard");
@@ -57,7 +59,13 @@ const AdminBoard = () => {
           <p className="orders">
             <BorderColorIcon style={{ fontSize: "25px" }} />{" "}
             <span onClick={() => setActive("Order")} className="btn">
-              orders
+              Orders
+            </span>{" "}
+          </p>
+          <p className="delivery">
+            <DeliveryDiningIcon style={{ fontSize: "25px" }} />{" "}
+            <span onClick={() => setActive("delivery")} className="btn">
+              Delivery
             </span>{" "}
           </p>
           <p className="Stores">
@@ -134,6 +142,7 @@ const AdminBoard = () => {
           {active === "Notification" && <Notification />}
           {active === "Support" && <Support />}
           {active === "Feedback" && <Feedback />}
+          {active === "delivery" && <Delivery />}
         </div>
       </div>
     </div>

@@ -38,11 +38,11 @@ const Feedback = () => {
             </div>
             <div className="Feedbacks">
               <h4>Store Feedback</h4>
-              <p>15</p>
+              <p>{feedback_list}</p>
             </div>
             <div className="Feedbacks">
               <h4>Delivery Boy Feedback</h4>
-              <p>45</p>
+              <p>0</p>
             </div>
           </div>
           <div className="Feedback-list">
@@ -50,13 +50,12 @@ const Feedback = () => {
               <tbody>
                 <tr>
                   <th>#Id</th>
-                  <th>Review</th>
-                  <th>Last Update</th>
+                  <th>Message</th>
                   <th>
-                    Role <ArrowDropDownIcon id="arrow" />
+                    Shop Id <ArrowDropDownIcon id="arrow" />
                   </th>
                   <th>
-                    Status <ArrowDropDownIcon id="arrow" />
+                    Sender Id <ArrowDropDownIcon id="arrow" />
                   </th>
                   <th>
                     Rating <ArrowDropDownIcon id="arrow" />
@@ -64,12 +63,11 @@ const Feedback = () => {
                 </tr>
                 {feedback.map((feedback, index) => {
                   return (
-                    <tr>
-                      <td>{feedback.shopid}</td>
+                    <tr key={index}>
+                      <td>{feedback.id}</td>
                       <td>{feedback.fmessage}</td>
-                      <td>Big bolw City</td>
-                      <td>1425</td>
-                      <td>5784</td>
+                      <td>{feedback.shopid}</td>
+                      <td>{feedback.senderid}</td>
                       <td>{feedback.frating}</td>
                     </tr>
                   );
